@@ -1,0 +1,116 @@
+@import '../utils/typography';
+@import '../utils/media_queries';
+
+.weather__header{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    
+    &__top{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        .temperature{
+            font-size: 7rem;
+            font-weight: 500;
+
+            sup{
+                font-size: 3.5rem;
+                font-weight: 100;
+            }
+        }
+        
+        .city{
+            font-size: 4rem;
+            font-weight: 500;
+
+            span{
+                font-size: 2rem;
+                font-weight: 200;
+            }
+        }
+
+        .weather-type{
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+        @include tabletBig{
+            .temperature{
+                font-size: 6rem;
+    
+                sup{
+                    font-size: 3rem;
+                }
+            }
+            
+            .city{
+                font-size: 3rem;
+    
+                span{
+                    font-size: 1.5rem;
+                }
+            }
+    
+            .weather-type{
+                font-size: 1.5rem;
+            }
+        }
+
+        @include mobileSmall{
+            .temperature{
+                font-size: 4rem;
+    
+                sup{
+                    font-size: 2rem;
+                }
+            }
+            
+            .city{
+                font-size: 1.25rem;
+    
+                span{
+                    font-size: 1rem;
+                }
+            }
+    
+            .weather-type{
+                font-size: 1rem;
+            }
+        }
+
+        @include mobileMin{
+            .temperature{
+                font-size: 3rem;
+    
+                sup{
+                    font-size: 1.5rem;
+                }
+            }
+            
+            .city{
+                font-size: 1rem;
+    
+                span{
+                    font-size: 1rem;
+                }
+            }
+    
+            .weather-type{
+                font-size: .9rem;
+            }
+        }
+    }
+
+    &__bottom{
+            font-family: $font1;
+            font-weight: 300; 
+  
+
+        @include tabletSmall{
+            text-align: center;
+        }
+    }
+    
+}

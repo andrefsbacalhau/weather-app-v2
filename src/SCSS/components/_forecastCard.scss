@@ -1,0 +1,25 @@
+@import '../utils/typography';
+
+.forecast{
+    border: 1px solid rgba($color: white, $alpha: 0.4);
+    border-radius: 10px;
+    font-family: $font1;
+    color: rgba($color: white, $alpha: 0.9);
+    padding: 1rem 1rem;
+    display: grid;
+    place-items: center;
+    margin: 1rem 0;
+    
+
+    &__day{
+        font-size:1.5rem;
+        font-weight: 200;
+        color: white;
+    }
+
+    &__temperature{
+        font-size: 1.5rem;
+        font-weight: 100;
+    }
+
+}
