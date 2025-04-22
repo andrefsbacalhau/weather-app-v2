@@ -1,8 +1,64 @@
 @import '../utils/typography';
+@import '../utils/media_queries';
 
 .forecast-container{
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: .5rem;
+    flex-direction: column;
+
+    h2{
+        font-weight: 100;
+        margin-top: 2rem;
+    }
+
+    .forecast-cards{ 
+        display: grid;
+        grid-template-columns: 250px 250px 250px 250px;
+        gap: 1rem;
+    }
+
+    //RESPONSIVENESS
+    
+    @include tabletSpecial{
+        h2{
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .forecast-cards{
+            justify-content: center;
+            grid-template-columns: 400px 400px;
+        }
+    }
+
+    @include tabletBig{
+        .forecast-cards{
+            grid-template-columns: 400px 400px;
+            }
+    }
+
+    @include tabletSmall{
+        .forecast-cards{
+            grid-template-columns: 300px 300px;
+            }
+    }
+
+    @include mobileBig{
+        .forecast-cards{
+            grid-template-columns: 400px;
+            }
+    }
+
+    @include mobileSmall{
+
+        h2{
+            font-size: 1.4rem;
+        }
+        .forecast-cards{
+            grid-template-columns: 300px;
+            }
+    }
+
+    .forecast-link{
+        text-decoration: none;
+    }
 }

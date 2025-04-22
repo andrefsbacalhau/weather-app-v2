@@ -16,19 +16,26 @@
             background: transparent;
             border-radius: 4px;
             border: .5px solid rgba($color: white, $alpha: 0.4);
+            display: flex;
             
 
             input{
-                max-width: 200px;
-                height: 50px;
+                max-width: 250px;
+                height: 30px;
                 font-size: 1.5rem;
-                text-align: center;
                 color: white;
                 background: transparent;
                 border: none;
                 outline: none;
                 font-family: $font1;
                 font-weight: 300;
+                padding: 1rem;
+                
+
+                &::placeholder{
+                    color: black;
+                    opacity: .5;
+                }
             }
         
             button{
@@ -41,6 +48,8 @@
                 cursor: pointer;
             }
 
+
+            //RESPONSIVENESS 
             @include tabletSmall{
                 input{
                     height: 40px;

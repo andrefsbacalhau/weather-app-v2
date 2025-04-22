@@ -3,30 +3,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  padding: 1rem;
   display: grid;
   place-items: center;
-  padding: 1rem;
-}
-@media screen and (max-width: 576px) {
-  .app {
-    padding: 1rem;
-  }
+  overflow: hidden;
 }
 .app__bg {
-  width: 100vw;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
   position: absolute;
   z-index: -1;
 }
@@ -40,8 +42,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding: 1rem 2rem;
+  align-items: center;
+  padding: 2rem 2rem;
   backdrop-filter: blur(4px) brightness(70%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 10px;
@@ -49,18 +51,46 @@
   color: rgba(255, 255, 255, 0.9);
 }
 .app__container__tsection {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
 }
-@media screen and (max-width: 820px) {
+.app__container__msection {
+  width: 100%;
+  display: flex;
+  margin-top: 5rem;
+}
+@media screen and (max-width: 1580px) {
+  .app__container {
+    justify-content: center;
+  }
+  .app__container__msection {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1024px) {
   .app__container__tsection {
     flex-direction: column;
   }
+  .app__container__msection {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-.app__container__msection {
-  margin: 2rem;
+@media screen and (max-width: 700px) {
+  .app {
+    padding: 1rem 1rem;
+  }
+}
+@media screen and (max-width: 390px) {
+  .app {
+    justify-content: center;
+    padding: 0 0;
+  }
 }
 
 .input__form {
@@ -76,18 +106,23 @@
   background: transparent;
   border-radius: 4px;
   border: 0.5px solid rgba(255, 255, 255, 0.4);
+  display: flex;
 }
 .input__form__input input {
-  max-width: 200px;
-  height: 50px;
+  max-width: 250px;
+  height: 30px;
   font-size: 1.5rem;
-  text-align: center;
   color: white;
   background: transparent;
   border: none;
   outline: none;
   font-family: "Roboto";
   font-weight: 300;
+  padding: 1rem;
+}
+.input__form__input input::placeholder {
+  color: black;
+  opacity: 0.5;
 }
 .input__form__input button {
   background: transparent;
@@ -116,138 +151,198 @@
   }
 }
 
-.weather__header {
+.header__left {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
 }
-.weather__header__top {
+.header__left__top {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.weather__header__top .temperature {
+.header__left__top .temperature {
   font-size: 7rem;
   font-weight: 500;
 }
-.weather__header__top .temperature sup {
+.header__left__top .temperature sup {
   font-size: 3.5rem;
   font-weight: 100;
 }
-.weather__header__top .city {
-  font-size: 4rem;
+.header__left__top .city {
+  font-size: 3.5rem;
   font-weight: 500;
 }
-.weather__header__top .city span {
+.header__left__top .city span {
   font-size: 2rem;
   font-weight: 200;
 }
-.weather__header__top .weather-type {
+.header__left__top .weather-type {
   font-size: 2rem;
   font-weight: 100;
 }
+.header__left__bottom p {
+  font-family: "Roboto";
+  font-weight: 100;
+}
 @media screen and (max-width: 1024px) {
-  .weather__header__top .temperature {
+  .header__left__top .temperature {
     font-size: 6rem;
   }
-  .weather__header__top .temperature sup {
+  .header__left__top .temperature sup {
     font-size: 3rem;
   }
-  .weather__header__top .city {
-    font-size: 3rem;
+  .header__left__top .city {
+    font-size: 2.5rem;
   }
-  .weather__header__top .city span {
+  .header__left__top .city span {
     font-size: 1.5rem;
   }
-  .weather__header__top .weather-type {
+  .header__left__top .weather-type {
     font-size: 1.5rem;
+  }
+  .header__left__bottom p {
+    text-align: center;
   }
 }
 @media screen and (max-width: 576px) {
-  .weather__header__top .temperature {
+  .header__left .temperature {
     font-size: 4rem;
   }
-  .weather__header__top .temperature sup {
+  .header__left .temperature sup {
     font-size: 2rem;
   }
-  .weather__header__top .city {
+  .header__left .city {
     font-size: 1.25rem;
   }
-  .weather__header__top .city span {
+  .header__left .city span {
     font-size: 1rem;
   }
-  .weather__header__top .weather-type {
+  .header__left .weather-type {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 390px) {
-  .weather__header__top .temperature {
+  .header__left .temperature {
     font-size: 3rem;
   }
-  .weather__header__top .temperature sup {
+  .header__left .temperature sup {
     font-size: 1.5rem;
   }
-  .weather__header__top .city {
+  .header__left .city {
     font-size: 1rem;
   }
-  .weather__header__top .city span {
+  .header__left .city span {
     font-size: 1rem;
   }
-  .weather__header__top .weather-type {
+  .header__left .weather-type {
     font-size: 0.9rem;
-  }
-}
-.weather__header__bottom {
-  font-family: "Roboto";
-  font-weight: 300;
-}
-@media screen and (max-width: 820px) {
-  .weather__header__bottom {
-    text-align: center;
   }
 }
 
 .weather-details {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .weather-details p {
   font-size: 2rem;
   font-weight: 100;
   margin-top: 0.5rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1580px) {
+  .weather-details {
+    width: 100%;
+  }
   .weather-details p {
-    font-size: 1.2rem;
-    font-weight: 400;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .weather-details {
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .weather-details p {
+    font-size: 1.6rem;
+    font-weight: 200;
   }
 }
 @media screen and (max-width: 390px) {
   .weather-details p {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 200;
   }
 }
 
 .forecast-container {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+}
+.forecast-container h2 {
+  font-weight: 100;
+  margin-top: 2rem;
+}
+.forecast-container .forecast-cards {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  gap: 1rem;
+}
+@media screen and (max-width: 1580px) {
+  .forecast-container h2 {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .forecast-container .forecast-cards {
+    justify-content: center;
+    grid-template-columns: 400px 400px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .forecast-container .forecast-cards {
+    grid-template-columns: 400px 400px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .forecast-container .forecast-cards {
+    grid-template-columns: 300px 300px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .forecast-container .forecast-cards {
+    grid-template-columns: 400px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .forecast-container h2 {
+    font-size: 1.4rem;
+  }
+  .forecast-container .forecast-cards {
+    grid-template-columns: 300px;
+  }
+}
+.forecast-container .forecast-link {
+  text-decoration: none;
 }
 
 .forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   font-family: "Roboto";
   color: rgba(255, 255, 255, 0.9);
-  padding: 1rem 1rem;
-  display: grid;
-  place-items: center;
-  margin: 1rem 0;
+  padding: 0rem 1rem;
+  position: relative;
+  margin-top: 1.5rem;
+}
+.forecast:hover {
+  cursor: pointer;
 }
 .forecast__day {
   font-size: 1.5rem;
@@ -255,6 +350,99 @@
   color: white;
 }
 .forecast__temperature {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 100;
+}
+.forecast .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+.forecast .details p {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+@media screen and (max-width: 1024px) {
+  .forecast .details {
+    margin-top: 1rem;
+  }
+  .forecast .details p {
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 390px) {
+  .forecast .details {
+    margin-top: 2rem;
+  }
+  .forecast .details p {
+    font-size: 1.5rem;
+  }
+}
+
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loading-container .loading-text {
+  font-family: "Roboto";
+  font-weight: 200;
+  font-size: 2.5rem;
+  color: black;
+  text-align: center;
+}
+@media screen and (max-width: 820px) {
+  .loading-container .loading-image {
+    width: 300px;
+  }
+  .loading-container .loading-image img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.error-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/images/loading-rain.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.error-container .error-text {
+  font-family: "Roboto";
+  font-weight: 200;
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+.error-container button {
+  border: 1px solid black;
+  background: transparent;
+  font-family: "Roboto";
+  font-weight: 200;
+  font-size: 3rem;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+@media screen and (max-width: 820px) {
+  .error-container button {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .error-container button {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=index.css.map */

@@ -1,8 +1,11 @@
 @use 'utils/resets';
 @use 'components/_app';
 @use 'components/_cityInput';
-@use 'components/_cityWeatherHeader';
+@use 'components/_cityName';
 @use 'components/_cityWeatherDetails';
 @use 'components/_cityForecast';
 @use 'components/_forecastCard';
+@use 'components/_loading';
+@use 'components/_error';
+
 

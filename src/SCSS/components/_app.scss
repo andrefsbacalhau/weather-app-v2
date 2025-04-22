@@ -3,21 +3,18 @@
 
 .app{
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    padding: 1rem;
     display: grid;
     place-items: center;
-    padding: 1rem;
-
-    @include mobileSmall{
-        padding: 1rem;
-    }
+    overflow: hidden;
 
     &__bg{
-        width: 100vw;
+        width: 100%;
         height: 100%;
+        overflow: hidden;
         position: absolute;
         z-index: -1;
 
@@ -33,8 +30,8 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        padding: 1rem 2rem;
+        align-items: center;
+        padding: 2rem 2rem;
         backdrop-filter: blur(4px) brightness(70%);
         border: 1px solid rgba($color: white, $alpha: 0.4);
         border-radius: 10px;
@@ -42,22 +39,55 @@
         color: rgba($color: white, $alpha: 0.9);
       
         &__tsection{
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 2rem;
-
-            @include tabletSmall{
-                flex-direction: column;
-            }
-
         }
 
         &__msection{
-            margin: 2rem;
+            width: 100%;
+           display: flex;
+           margin-top: 5rem;
+        }        
+    }
 
+    //RESPONSIVENESS
+    @include tabletSpecial{
+        &__container{
+            justify-content: center;
+            &__msection{
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
-
+        
     }
+
+    @include tabletBig{
+        &__container{
+            &__tsection{
+                flex-direction: column;
+            }
+
+            &__msection{
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    @include mobileBig{
+        padding: 1rem 1rem;
+    }
+
+    @include mobileMin{
+        justify-content: center;
+        padding: 0 0;
+    }
+
 }
+
